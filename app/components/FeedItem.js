@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types'
 
 export default function FeedItem({ post }) {
   const { date, time } = formatDate(post.time);
+  console.log(post)
   return (
     <ul className="container">
       <li>
@@ -13,6 +15,15 @@ export default function FeedItem({ post }) {
       </li>
     </ul>
   );
+}
+
+FeedItem.propTypes = {
+  post: PropTypes.shape({
+    time: PropTypes.number,
+    title: PropTypes.string,
+    by: PropTypes.string,
+    descendants: PropTypes.number
+  })
 }
 
 function formatDate(timestamp) {
