@@ -10,7 +10,7 @@ export default class CommentView extends React.Component {
   };
 
   componentDidMount() {
-    fetchItem('22718330')
+    fetchItem('22742349')
       .then(res => this.setState({ post: res }))
       .then(() => fetchComments(this.state.post.kids))
       .then((resp) => this.setState({ comments: resp }))
@@ -22,8 +22,8 @@ export default class CommentView extends React.Component {
     return (
       <div className='container'>
         <FeedItem post={post} />
-        {comments.map(comment => (
-          <Comment comment={comment}/>
+        {comments.map((comment, index) => (
+          <Comment comment={comment} key={`comment-${index}`}/>
         ))}
       </div>
     )

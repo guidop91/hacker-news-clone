@@ -15,7 +15,7 @@ export default class TopPosts extends React.Component {
     if (!this.state.posts) return null;
     return (
       this.state.posts.map((post, index) => (
-        <FeedItem post={post} key={index} />
+        <FeedItem post={post} key={`post-${index}`} />
       ))
     )
   }
